@@ -89,6 +89,7 @@ $(document).ready(function () {
 });
 modal2Send.addEventListener('click', posting);
 
+// 이 부분 추가<div class = "mesage-card-buttons"></div>, 버튼도 추가
 function listing() {
     fetch('/userinfo')
         .then((res) => res.json())
@@ -96,8 +97,7 @@ function listing() {
             let userData = data.users;
             let dropdown1 = document.getElementById('dropdown1').value;
             let dropdown2 = document.getElementById('dropdown2').value;
-            let messageTextArea =
-                document.getElementById('messageTextArea').textContent;
+            let messageTextArea = document.getElementById('messageTextArea').textContent;
             console.log(userData);
             userData.forEach((element) => {
                 console.log(element);
@@ -106,6 +106,14 @@ function listing() {
                 messageTextArea = element.messageTextArea;
                 $('#message-card-container').append(`
                 <div class="card message-card">
+                    <div class="message-card-buttons"> 
+                        <div class="delete-button">
+                            <button onclick="delete_post_by_dropdown1('${dropdown1}')" type="button" class="btn btn-sm btn_delete">del</button>
+                        </div>
+                        <div class="edit-button">
+                            <button onclick="edit_post_by_dropdown1('${dropdown1}')" type="button" class="btn btn-sm btn_edit">edit</button>
+                        </div>
+                </div>
                 <div class="message-card-first-div">
                     <p class="message-card-p1">To.</p>
                     <p class="message-card-p1">${dropdown1}</p>
@@ -150,4 +158,92 @@ function posting() {
             alert('오류가 발생하였습니다.\n\n다시 시도해주세요.)');
             messageTextArea = '';
         });
+}
+
+function delete_post_by_dropdown1(dropdown1) {
+    if (confirm('삭제하시겠습니까?')) {
+        let formData = new FormData();
+        formData.append('dropdown1_give', dropdown1);
+
+        fetch('/userinfo', { method: 'DELETE', body: formData })
+            .then((res) => res.json())
+            .then((data) => {
+                alert(data['msg']);
+                window.location.reload();
+            });
+    }
+}
+
+function edit_post_by_dropdown1(dropdown1, dropdown2, messageTextArea) {
+    if (confirm('수정하시겠습니까?')) {
+        const modalContainer = document.createElement('div');
+        modalContainer.className = 'modal-container1';
+        modalContainer.innerHTML = `
+            <div id="modal2-div1">
+                <div>
+                    <label for="editDropdown1">누구에게 보낼까요?</label>
+                    <select id="editDropdown1">
+                        <option value="" disabled selected hidden>선택하세요</option>
+                        <option value="김환훈">김환훈</option>
+                        <option value="이진솔">이진솔</option>
+                        <option value="원유길">원유길</option>
+                        <option value="이수진">이수진</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="editDropdown2">나는 누구?</label>
+                    <select id="editDropdown2">
+                        <option value="" disabled selected hidden>선택하세요</option>
+                        <option value="김환훈">김환훈</option>
+                        <option value="이진솔">이진솔</option>
+                        <option value="원유길">원유길</option>
+                        <option value="이수진">이수진</option>
+                    </select>
+                </div>
+            </div>
+            <div id="modal2-div2">
+                <h2>Content</h2>
+                <textarea id="editMessageTextArea" rows="5" cols="50" placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate"></textarea>
+            </div>
+            <div id="modal2-div3">
+                <input id="modal2Send" type="button" value="보내기">
+                <input id="modal2Close" type="button" value="닫기">
+            </div>
+        `;
+
+        // 기존 데이터 채우기 오류 발생
+        // document.getElementById('editDropdown1').value = dropdown1;
+        // document.getElementById('editDropdown2').value = dropdown2;
+        // document.getElementById('editMessageTextArea').value = messageTextArea;
+
+        // 닫기 버튼 이벤트 처리
+        modalContainer.querySelector('#modal2Close').onclick = function () {
+            document.body.removeChild(modalContainer);
+        };
+
+        // 수정 저장 버튼 이벤트 처리
+        modalContainer.querySelector('#modal2Send').onclick = function () {
+            const editDropdown1 = document.getElementById('editDropdown1').value;
+            const editDropdown2 = document.getElementById('editDropdown2').value;
+            const editMessageTextArea = document.getElementById('editMessageTextArea').value;
+
+            // 서버에 수정 요청 보내기
+            let formData = new FormData();
+            formData.append('dropdown1_give', dropdown1);
+            formData.append('edit_dropdown1_give', editDropdown1);
+            formData.append('edit_dropdown2_give', editDropdown2);
+            formData.append('edit_messageTextArea_give', editMessageTextArea);
+
+            fetch('/userinfo', { method: 'UPDATE', body: formData })
+                .then((res) => res.json())
+                .then((data) => {
+                    alert(data['msg']);
+                    window.location.reload();
+                });
+                        // 모달 폼 닫기
+        document.body.removeChild(modalContainer);
+    };
+
+    document.body.appendChild(modalContainer);
+  }
 }

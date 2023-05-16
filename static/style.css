@@ -13,6 +13,7 @@ html {
 .hide {
     display: none;
 }
+
 .show {
     display: block;
 }
@@ -30,6 +31,7 @@ html {
     justify-content: center;
     align-items: center;
 }
+
 .spinner {
     width: 40px;
     height: 40px;
@@ -40,10 +42,12 @@ html {
     border-left: 3px solid #ccc;
     animation: spin 1s ease infinite;
 }
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -56,13 +60,13 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(
-        0,
-        0,
-        0,
-        0.6
-    ); /* 원하는 어두운 배경의 색상과 투명도 조절 */
-    z-index: 5; /* 모달창 위에 표시되도록 z-index 값 설정 */
+    background-color: rgba(0,
+            0,
+            0,
+            0.6);
+    /* 원하는 어두운 배경의 색상과 투명도 조절 */
+    z-index: 5;
+    /* 모달창 위에 표시되도록 z-index 값 설정 */
 }
 
 .lightbox-fade-in {
@@ -70,10 +74,12 @@ html {
     animation-duration: 0.6s;
     animation-fill-mode: forwards;
 }
+
 @keyframes fade-in {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -97,6 +103,7 @@ nav {
 nav a {
     cursor: pointer;
 }
+
 .logo {
     display: inline-block;
     font-size: 1.7rem;
@@ -106,19 +113,23 @@ nav a {
     transition: transform 2s;
     cursor: default;
 }
+
 .logo:hover {
     color: salmon;
     transform: scale(1.2);
     transition: transform 0.6s;
 }
+
 .nav-link-container ul {
     display: flex;
     gap: 2rem;
 }
+
 .nav-link-container li {
     transform: scale(1);
     transition: transform 1s;
 }
+
 .nav-link-container li:hover {
     color: salmon;
     transform: scale(1.2);
@@ -143,17 +154,21 @@ nav a {
     -moz-box-shadow: 3px 2px 5px 0px rgba(166, 166, 166, 1);
     box-shadow: 3px 2px 5px 0px rgba(166, 166, 166, 1);
 }
+
 .front1 {
     background-color: #fdffdd;
     height: 900px;
 }
+
 .front2 {
     background-color: #f1d6d5;
 }
+
 .front3 {
     background-color: #c2e1ff;
 }
-.main-front > * {
+
+.main-front>* {
     width: 70%;
     line-height: 1.4;
     text-align: center;
@@ -176,21 +191,26 @@ nav a {
     gap: 10px;
     padding-bottom: 30px;
 }
+
 #main-front-left-div1 h2 {
     font-size: 1.5rem;
 }
+
 #main-front-left-div1 h3 {
     font-size: 1.1rem;
     padding-top: 10px;
 }
+
 #main-front-left-p {
     width: 60%;
     font-size: 0.9rem;
     line-height: 1.3;
 }
+
 .main-front-h1-big {
     font-size: 2rem;
 }
+
 .front1 p,
 .front2 p {
     font-size: 0.85rem;
@@ -204,15 +224,18 @@ nav a {
     flex-direction: column;
     align-items: center;
 }
+
 #sect2-people-div1 {
     display: flex;
     height: 150px;
     justify-content: center;
     align-items: center;
 }
-#sect2-people-div1 > h1 {
+
+#sect2-people-div1>h1 {
     font-size: 2rem;
 }
+
 #people-cards-container {
     width: 90%;
     display: flex;
@@ -222,6 +245,7 @@ nav a {
     gap: 40px;
     padding-bottom: 50px;
 }
+
 .card {
     width: 30%;
     min-width: 250px;
@@ -242,16 +266,19 @@ nav a {
     flex-direction: column;
     gap: 10px;
 }
+
 .people-card-intro-con {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     height: 170px;
 }
+
 .people-card-intro-con h2 {
     padding-left: 5px;
 }
-.people-card-intro-con > p {
+
+.people-card-intro-con>p {
     padding-bottom: 10px;
     padding-left: 5px;
     line-height: 1.1;
@@ -262,7 +289,7 @@ nav a {
     justify-content: center;
 }
 
-.people-card-intro-input-con > input {
+.people-card-intro-input-con>input {
     width: 60%;
     border: none;
     height: 30px;
@@ -277,7 +304,8 @@ nav a {
     color: #222;
     margin-bottom: 20px;
 }
-.people-card-intro-input-con > input:hover {
+
+.people-card-intro-input-con>input:hover {
     -webkit-box-shadow: 1px 1px 10px 0px rgba(166, 166, 166, 1);
     -moz-box-shadow: 1px 1px 10px 0px rgba(166, 166, 166, 1);
     box-shadow: 1px 1px 10px 0px rgba(166, 166, 166, 1);
@@ -297,6 +325,7 @@ nav a {
 #sect3 {
     padding-top: 50px;
 }
+
 #message {
     display: flex;
     flex-direction: column;
@@ -323,6 +352,7 @@ nav a {
     box-shadow: 3px 2px 10px 0px rgba(166, 166, 166, 1);
     cursor: pointer;
 }
+
 #message input:hover {
     -webkit-box-shadow: 1px 1px 10px 0px rgba(166, 166, 166, 1);
     -moz-box-shadow: 1px 1px 10px 0px rgba(166, 166, 166, 1);
@@ -356,11 +386,12 @@ nav a {
     justify-content: flex-start;
     align-items: center;
 }
+
 .message-card-second-div {
     justify-content: flex-end;
 }
 
-.message-card > textarea {
+.message-card>textarea {
     resize: none;
     border-radius: 3px;
     border: none;
@@ -381,6 +412,7 @@ nav a {
     align-items: center;
     height: 50px;
 }
+
 #toTopBtn-con input {
     background: white;
     border: none;
@@ -392,6 +424,7 @@ nav a {
     box-shadow: 1px 1px 5px 0px rgba(166, 166, 166, 1);
     cursor: pointer;
 }
+
 #toTopBtn-con input:hover {
     background-color: #fafafa;
 }
@@ -416,7 +449,7 @@ footer {
     gap: 8px;
 }
 
-#footer-div1 > h1 {
+#footer-div1>h1 {
     font-size: 1.7rem;
     font-weight: 600;
     font-family: 'Nanum Brush Script', cursive;
@@ -462,7 +495,7 @@ modal1 {
     justify-content: space-evenly;
 }
 
-#modal-div1 > img {
+#modal-div1>img {
     margin: 20px;
     width: 50%;
     border-radius: 7px;
@@ -480,9 +513,11 @@ modal1 {
     justify-content: space-between;
     gap: 10px;
 }
+
 .modal-info-input-container label {
     width: 100px;
 }
+
 #modal-div1-info-container input {
     width: 70%;
     margin-right: 20px;
@@ -508,11 +543,13 @@ modal1 {
     width: 95%;
     margin: 10px auto;
 }
+
 #modal-div2-3 {
     display: flex;
     justify-content: center;
     padding-bottom: 20px;
 }
+
 #people-modal-close {
     font-size: 1rem;
     width: 30%;
@@ -525,6 +562,7 @@ modal1 {
     box-shadow: 0px 0px 2px 0px rgba(166, 166, 166, 1);
     cursor: pointer;
 }
+
 #people-modal-close:hover {
     background: #fafafa;
 }
@@ -550,33 +588,41 @@ modal1 {
         width: 98%;
         height: 550px;
     }
+
     #modal-div1-info-container h1 {
         font-size: 1.3rem;
         letter-spacing: 5px;
     }
+
     .modal-info-input-container label {
         font-size: 0.7rem;
         padding-top: 7px;
         width: 30px;
     }
+
     #modal-div1-info-container input {
         width: 100px;
     }
-    #modal-div1 > img {
+
+    #modal-div1>img {
         margin: 5px;
         width: 40%;
         border-radius: 7px;
     }
+
     #modal-div1 {
         margin-top: 10px;
     }
+
     #people-modal-close {
         width: 50%;
     }
+
     #people-modal-close:hover {
         background: #fafafa;
     }
 }
+
 /**
 device screen resize
 @media screen and (min-width: 320px) and (max-width: 450px) {
@@ -590,6 +636,7 @@ modal2 {
     align-items: center;
     z-index: 10;
 }
+
 .modal-container1 {
     max-width: 700px;
     overflow: hidden;
@@ -623,6 +670,7 @@ modal2 {
     margin-left: 20px;
 }
 
+
 #modal2-div2 {
     height: 50%;
     display: flex;
@@ -631,10 +679,12 @@ modal2 {
     justify-content: space-evenly;
     padding: 20px 0;
 }
+
 #modal2-div2 h2 {
     font-size: 1.2rem;
     letter-spacing: 1.5px;
 }
+
 #modal2-div2 textarea {
     margin-top: 20px;
     resize: none;
@@ -648,6 +698,7 @@ modal2 {
     display: flex;
     justify-content: space-around;
 }
+
 #modal2-div3 input {
     width: 30%;
     padding: 5px 0;
@@ -670,33 +721,56 @@ modal2 {
         height: 400px;
         width: 90%;
     }
-    #modal2-div1 > div {
+
+    #modal2-div1>div {
         display: flex;
         gap: 10px;
         flex-direction: column;
         align-items: center;
     }
+
     #dropdown1,
     #dropdown2 {
         padding: 5px 10px;
     }
 }
+
 @media screen and (min-width: 451px) and (max-width: 774px) {
     .modal-container1 {
         height: 450px;
         width: 90%;
     }
-    #modal2-div1 > div {
+
+    #modal2-div1>div {
         display: flex;
         gap: 10px;
         flex-direction: column;
         align-items: center;
     }
+
     #dropdown1,
     #dropdown2 {
         padding: 5px 10px;
     }
+
     #modal2-div3 {
         padding-top: 20px;
     }
 }
+
+/* 원유길 추가부분 수정 삭제 버튼 정렬*/
+.message-card {
+    position: relative;
+  }
+  
+  .message-card-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .delete-button,
+  .edit-button {
+    display: inline-block;
+    margin-right: 5px;
+  }
