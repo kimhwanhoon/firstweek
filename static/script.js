@@ -89,7 +89,7 @@ $(document).ready(function () {
 });
 modal2Send.addEventListener('click', posting);
 
-// 이 부분 추가<div class = "mesage-card-buttons"></div>, 버튼도 추가
+// 버튼 추가<div class="card message-card">
 function listing() {
     fetch('/userinfo')
         .then((res) => res.json())
@@ -160,6 +160,7 @@ function posting() {
         });
 }
 
+//삭제 함수 추가 회원가입 후 ID 값이 아닌 dropdown1 변수를 기준으로 삭제
 function delete_post_by_dropdown1(dropdown1) {
     if (confirm('삭제하시겠습니까?')) {
         let formData = new FormData();
@@ -174,6 +175,7 @@ function delete_post_by_dropdown1(dropdown1) {
     }
 }
 
+//업데이트 함수 추가 회원가입 후 ID 값이 아닌 dropdown1 변수를 기준으로 수정
 function edit_post_by_dropdown1(dropdown1, dropdown2, messageTextArea) {
     if (confirm('수정하시겠습니까?')) {
         const modalContainer = document.createElement('div');
@@ -211,23 +213,20 @@ function edit_post_by_dropdown1(dropdown1, dropdown2, messageTextArea) {
             </div>
         `;
 
-        // 기존 데이터 채우기 오류 발생
+        // 기존 데이터 채우기 오류 발생 해서 잠시 보류
         // document.getElementById('editDropdown1').value = dropdown1;
         // document.getElementById('editDropdown2').value = dropdown2;
         // document.getElementById('editMessageTextArea').value = messageTextArea;
 
-        // 닫기 버튼 이벤트 처리
         modalContainer.querySelector('#modal2Close').onclick = function () {
             document.body.removeChild(modalContainer);
         };
 
-        // 수정 저장 버튼 이벤트 처리
         modalContainer.querySelector('#modal2Send').onclick = function () {
             const editDropdown1 = document.getElementById('editDropdown1').value;
             const editDropdown2 = document.getElementById('editDropdown2').value;
             const editMessageTextArea = document.getElementById('editMessageTextArea').value;
 
-            // 서버에 수정 요청 보내기
             let formData = new FormData();
             formData.append('dropdown1_give', dropdown1);
             formData.append('edit_dropdown1_give', editDropdown1);
@@ -240,7 +239,6 @@ function edit_post_by_dropdown1(dropdown1, dropdown2, messageTextArea) {
                     alert(data['msg']);
                     window.location.reload();
                 });
-                        // 모달 폼 닫기
         document.body.removeChild(modalContainer);
     };
 
