@@ -100,7 +100,7 @@ function listing() {
             let messageTextArea = document.getElementById('messageTextArea').textContent;
             console.log(userData);
             userData.forEach((element) => {
-                console.log(element);
+                let id = element.id;
                 dropdown1 = element.dropdown1;
                 dropdown2 = element.dropdown2;
                 messageTextArea = element.messageTextArea;
@@ -108,10 +108,10 @@ function listing() {
                 <div class="card message-card">
                     <div class="message-card-buttons"> 
                         <div class="delete-button">
-                            <button onclick="delete_post_by_dropdown1('${dropdown1}')" type="button" class="btn btn-sm btn_delete">del</button>
+                            <button onclick="delete_post_by_id('${element.id}')" type="button" class="btn btn-sm btn_delete">del</button>
                         </div>
                         <div class="edit-button">
-                            <button onclick="edit_post_by_dropdown1('${dropdown1}')" type="button" class="btn btn-sm btn_edit">edit</button>
+                            <button onclick="edit_post_by_id('${element.id}')" type="button" class="btn btn-sm btn_edit">edit</button>
                         </div>
                 </div>
                 <div class="message-card-first-div">
@@ -129,6 +129,7 @@ function listing() {
         });
 }
 
+//메세지 추가 부분
 function posting() {
     let dropdown1 = document.getElementById('dropdown1').value;
     let dropdown2 = document.getElementById('dropdown2').value;
@@ -160,11 +161,12 @@ function posting() {
         });
 }
 
-//삭제 함수 추가 회원가입 후 ID 값이 아닌 dropdown1 변수를 기준으로 삭제
-function delete_post_by_dropdown1(dropdown1) {
+//삭제 함수 추가 id 값을 매개변수로 삭제
+function delete_post_by_id(id) {
     if (confirm('삭제하시겠습니까?')) {
         let formData = new FormData();
-        formData.append('dropdown1_give', dropdown1);
+        console.log(id);
+        formData.append('id', id);
 
         fetch('/userinfo', { method: 'DELETE', body: formData })
             .then((res) => res.json())
@@ -175,8 +177,8 @@ function delete_post_by_dropdown1(dropdown1) {
     }
 }
 
-//업데이트 함수 추가 회원가입 후 ID 값이 아닌 dropdown1 변수를 기준으로 수정
-function edit_post_by_dropdown1(dropdown1, dropdown2, messageTextArea) {
+//업데이트 함수 추가 회원가입 후 ID 값을 매개변수로 수정
+function edit_post_by_id(id) {
     if (confirm('수정하시겠습니까?')) {
         const modalContainer = document.createElement('div');
         modalContainer.className = 'modal-container1';
@@ -214,9 +216,9 @@ function edit_post_by_dropdown1(dropdown1, dropdown2, messageTextArea) {
         `;
 
         // 기존 데이터 채우기 오류 발생 해서 잠시 보류
-        // document.getElementById('editDropdown1').value = dropdown1;
-        // document.getElementById('editDropdown2').value = dropdown2;
-        // document.getElementById('editMessageTextArea').value = messageTextArea;
+        //document.getElementById('editDropdown1').value = dropdown1;
+        //document.getElementById('editDropdown2').value = dropdown2;
+        //document.getElementById('editMessageTextArea').value = messageTextArea;
 
         modalContainer.querySelector('#modal2Close').onclick = function () {
             document.body.removeChild(modalContainer);
@@ -228,7 +230,7 @@ function edit_post_by_dropdown1(dropdown1, dropdown2, messageTextArea) {
             const editMessageTextArea = document.getElementById('editMessageTextArea').value;
 
             let formData = new FormData();
-            formData.append('dropdown1_give', dropdown1);
+            formData.append('id_give', id);
             formData.append('edit_dropdown1_give', editDropdown1);
             formData.append('edit_dropdown2_give', editDropdown2);
             formData.append('edit_messageTextArea_give', editMessageTextArea);
@@ -239,9 +241,9 @@ function edit_post_by_dropdown1(dropdown1, dropdown2, messageTextArea) {
                     alert(data['msg']);
                     window.location.reload();
                 });
-        document.body.removeChild(modalContainer);
-    };
+            document.body.removeChild(modalContainer);
+        };
 
-    document.body.appendChild(modalContainer);
-  }
+        document.body.appendChild(modalContainer);
+    }
 }

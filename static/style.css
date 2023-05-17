@@ -758,7 +758,7 @@ modal2 {
     }
 }
 
-/* 원유길 추가부분 수정 삭제 버튼 정렬*/
+/* 수정 삭제 버튼 위치 조정*/
 .message-card {
     position: relative;
   }
