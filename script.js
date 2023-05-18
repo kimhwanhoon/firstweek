@@ -59,6 +59,19 @@ window.addEventListener("scroll", function () {
   }
 });
 
+// 스크롤 맨 아래일때 네비게이션 안보이게하기
+window.onscroll = function (ev) {
+  let NavCon = document.querySelector(".nav-con");
+  if (
+    window.innerHeight + Math.round(window.scrollY) >=
+    document.body.offsetHeight
+  ) {
+    NavCon.classList.add("nav-con-none");
+  } else {
+    NavCon.classList.remove("nav-con-none");
+  }
+};
+
 // 로딩 화면 표시 함수
 function showLoading() {
   document.getElementById("loading").style.display = "flex";
