@@ -758,7 +758,7 @@ modal2 {
     }
 }
 
-/* 수정 삭제 버튼 위치 조정*/
+/* 수정 삭제 버튼 위치 조정 (우측 상단) */
 .message-card {
     position: relative;
   }

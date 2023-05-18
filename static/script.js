@@ -129,13 +129,16 @@ function listing() {
         });
 }
 
-//메세지 추가 부분
+//패스워드 입력 추가
 function posting() {
+    const passwordInput = document.getElementById('passwordInput');
+    const password = passwordInput.value;
     let dropdown1 = document.getElementById('dropdown1').value;
     let dropdown2 = document.getElementById('dropdown2').value;
     let messageTextArea = document.getElementById('messageTextArea').value;
 
     let formData = new FormData();
+    formData.append('password', password);
     formData.append('dropdown1', dropdown1);
     formData.append('dropdown2', dropdown2);
     formData.append('messageTextArea', messageTextArea);
@@ -145,6 +148,10 @@ function posting() {
     }
     if (messageTextArea === '') {
         alert('내용을 입력해주세요.');
+        return undefined;
+    }
+    if (password === '') {
+        alert('비밀번호를 입력해주세요.')
         return undefined;
     }
     fetch('/userinfo', { method: 'POST', body: formData })
@@ -161,12 +168,17 @@ function posting() {
         });
 }
 
-//삭제 함수 추가 id 값을 매개변수로 삭제
+//id값을 매개변수로 하고 비밀번호를 입력해야하는 삭제함수
 function delete_post_by_id(id) {
     if (confirm('삭제하시겠습니까?')) {
-        let formData = new FormData();
-        console.log(id);
+        const password = prompt('비밀번호를 입력하세요:');
+        if (password === null) {
+            return; // 입력을 취소한 경우 함수 종료
+        }
+
+        const formData = new FormData();
         formData.append('id', id);
+        formData.append('password', password);
 
         fetch('/userinfo', { method: 'DELETE', body: formData })
             .then((res) => res.json())
@@ -177,17 +189,55 @@ function delete_post_by_id(id) {
     }
 }
 
-//업데이트 함수 추가 회원가입 후 ID 값을 매개변수로 수정
+//업데이트 함수 비밀번호를 입력받고 일치할 때만 수정 폼 디스플레이하게 변경 
 function edit_post_by_id(id) {
     if (confirm('수정하시겠습니까?')) {
-        const modalContainer = document.createElement('div');
-        modalContainer.className = 'modal-container1';
-        modalContainer.innerHTML = `
+        const password = prompt('비밀번호를 입력하세요:');
+        if (password === null) {
+            return; // 입력을 취소한 경우 함수 종료
+        }
+
+        // 비밀번호 확인 요청을 서버에 보내기
+        fetch('/check_password', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: id,
+                password: password
+            })
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.msg === '일치') {
+                    // 비밀번호가 일치하는 경우 수정 폼 표시
+                    display_edit_form(id, password);
+                } else {
+                    alert('비밀번호가 일치하지 않습니다.');
+                }
+            });
+    }
+}
+
+//수정 기능 부분
+function display_edit_form(id, password) {
+    fetch('/userinfo')
+        .then((res) => res.json())
+        .then((data) => {
+            let userData = data.users;
+            let dropdown1 = document.getElementById('dropdown1').value;
+            let dropdown2 = document.getElementById('dropdown2').value;
+            let messageTextArea = document.getElementById('messageTextArea').textContent;
+             
+            const modalContainer = document.createElement('div');
+            modalContainer.className = 'modal-container1';
+            modalContainer.innerHTML = `
             <div id="modal2-div1">
                 <div>
                     <label for="editDropdown1">누구에게 보낼까요?</label>
                     <select id="editDropdown1">
-                        <option value="" disabled selected hidden>선택하세요</option>
+                        <option value="" disabled selected hidden>${dropdown1}</option>
                         <option value="김환훈">김환훈</option>
                         <option value="이진솔">이진솔</option>
                         <option value="원유길">원유길</option>
@@ -197,7 +247,7 @@ function edit_post_by_id(id) {
                 <div>
                     <label for="editDropdown2">나는 누구?</label>
                     <select id="editDropdown2">
-                        <option value="" disabled selected hidden>선택하세요</option>
+                        <option value="" disabled selected hidden>${dropdown2}</option>
                         <option value="김환훈">김환훈</option>
                         <option value="이진솔">이진솔</option>
                         <option value="원유길">원유길</option>
@@ -207,7 +257,8 @@ function edit_post_by_id(id) {
             </div>
             <div id="modal2-div2">
                 <h2>Content</h2>
-                <textarea id="editMessageTextArea" rows="5" cols="50" placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate"></textarea>
+                <textarea id="editMessageTextArea" rows="5" cols="50" placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate">
+                ${messageTextArea}</textarea>
             </div>
             <div id="modal2-div3">
                 <input id="modal2Send" type="button" value="보내기">
@@ -215,35 +266,31 @@ function edit_post_by_id(id) {
             </div>
         `;
 
-        // 기존 데이터 채우기 오류 발생 해서 잠시 보류
-        //document.getElementById('editDropdown1').value = dropdown1;
-        //document.getElementById('editDropdown2').value = dropdown2;
-        //document.getElementById('editMessageTextArea').value = messageTextArea;
+            modalContainer.querySelector('#modal2Close').onclick = function () {
+                document.body.removeChild(modalContainer);
+            };
 
-        modalContainer.querySelector('#modal2Close').onclick = function () {
-            document.body.removeChild(modalContainer);
-        };
+            modalContainer.querySelector('#modal2Send').onclick = function () {
+                const editDropdown1 = document.getElementById('editDropdown1').value;
+                const editDropdown2 = document.getElementById('editDropdown2').value;
+                const editMessageTextArea = document.getElementById('editMessageTextArea').value;
 
-        modalContainer.querySelector('#modal2Send').onclick = function () {
-            const editDropdown1 = document.getElementById('editDropdown1').value;
-            const editDropdown2 = document.getElementById('editDropdown2').value;
-            const editMessageTextArea = document.getElementById('editMessageTextArea').value;
+                let formData = new FormData();
+                formData.append('id_give', id);
+                formData.append('password', password);
+                formData.append('edit_dropdown1_give', editDropdown1);
+                formData.append('edit_dropdown2_give', editDropdown2);
+                formData.append('edit_messageTextArea_give', editMessageTextArea);
 
-            let formData = new FormData();
-            formData.append('id_give', id);
-            formData.append('edit_dropdown1_give', editDropdown1);
-            formData.append('edit_dropdown2_give', editDropdown2);
-            formData.append('edit_messageTextArea_give', editMessageTextArea);
+                fetch('/userinfo', { method: 'UPDATE', body: formData })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        alert(data['msg']);
+                        window.location.reload();
+                    });
+                document.body.removeChild(modalContainer);
+            };
 
-            fetch('/userinfo', { method: 'UPDATE', body: formData })
-                .then((res) => res.json())
-                .then((data) => {
-                    alert(data['msg']);
-                    window.location.reload();
-                });
-            document.body.removeChild(modalContainer);
-        };
-
-        document.body.appendChild(modalContainer);
-    }
+            document.body.appendChild(modalContainer);
+        });
 }
