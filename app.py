@@ -7,7 +7,7 @@ import requests
 from pymongo import MongoClient
 
 client = MongoClient(
-    "mongodb+srv://khh:LwE8KlTJpoo7Peua@test.ohpap5n.mongodb.net/?retryWrites=true&w=majority"
+    "mongodb+srv://sparta:test@cluster0.rlsriy3.mongodb.net/?retryWrites=true&w=majority"
 )
 db = client.firstweekDB
 

@@ -1,297 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- <link rel="stylesheet" href="reset.css" />
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="reset.css" />
         <link rel="stylesheet" href="style.css" />
         <script src="script.js" defer></script> -->
 
-        <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-        <script defer src="{{ url_for('static', filename='script.js') }}"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <title>React 한번 해보조</title>
-        <!-- 폰트 링크 시작 -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
-        <!-- 폰트 링크 끝 -->
-    </head>
-    <body>
-        <div id="loading">
-            <div class="spinner"></div>
-        </div>
-        <header>
-            <nav id="nav-con">
-                <div class="logo header-logo">React 한번 해보조</div>
-                <div class="nav-link-container">
-                    <ul>
-                        <li id="team"><a onclick="scrollToSection('team')">Team</a></li>
-                        <li id="people"><a onclick="scrollToSection('sect2')">People</a></li>
-                        <li id="team"><a onclick="scrollToSection('sect3')">Message</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <main>
-            <section id="sect1">
-                <div class="main-front front1">
-                    <div>
-                        <h1 class="main-front-h1-big">
-                            Let us introduce our team
-                        </h1>
-                    </div>
-                    <div>
-                        <p>
-                            Lorem losum dolor sit amet, consectetur adipiscina
-                            elita vulla molestie tacilisis eros in iaculis. Sed
-                            consequat frinailla tellus, non suscipit uma
-                            volutpat id, sed ac vehicula tortor eget moncus
-                            dunc. in vehiculd sollicituain ante, quis taucibus
-                            tortor accumsan eget
-                        </p>
-                    </div>
-                </div>
-                <div class="main-front front2">
-                    <div><h1 class="main-front-h1-big">Who We Are</h1></div>
-                    <div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elita Nulla molestie facilisis eros in iaculis. Sed
-                            consequat frinalla tellus, non suscioit urna
-                            volutpat id, sed ac vehicula tortor eset rhoncus
-                            nunc. In vehicula sollicitudin ante, quis faucious
-                            tortor accumsan eget.
-                        </p>
-                    </div>
-                </div>
-                <div class="main-front-left front3">
-                    <div id="main-front-left-div1">
-                        <h2>Our Goal</h2>
-                        <h3>Our goal is to be front-end developers!</h3>
-                    </div>
-                    <div>
-                        <p id="main-front-left-p">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elita Nulla molestie facilisis eros in iaculis. Sed
-                            consequat frinalla tellus, non suscioit urna
-                            volutpat id, sed ac vehicula tortor eset rhoncus
-                            nunc. In vehicula sollicitudin ante, quis faucious
-                            tortor accumsan eget.
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <section id="sect2">
-                <div id="sect2-people-div1"><h1>People</h1></div>
-                <div id="people-cards-container">
-                    <div class="card people-card1">
-                        <img
-                            class="people-card-profile-photo"
-                            src="{{url_for('static', filename='src/profile1.png') }}"
-                            alt=""
-                        />
-                        <div class="people-card-intro-con">
-                            <div>
-                                <h2>Name</h2>
-                                <img src="" alt="" />
-                                <img src="" alt="" />
-                            </div>
-                            <div class="divider"></div>
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur
-                                adipisicing elit. Ex similique nihil laudantium,
-                                quod ea cupiditate
-                            </p>
-                            <div class="people-card-intro-input-con">
-                                <input class="moreBtn" id="more-btn0" type="button" value="More" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card people-card2">
-                        <img
-                            class="people-card-profile-photo"
-                            src="{{url_for('static', filename='src/profile2.png') }}"
-                            alt=""
-                        />
-                        <div class="people-card-intro-con">
-                            <div>
-                                <h2>Name</h2>
-                                <img src="" alt="" />
-                                <img src="" alt="" />
-                            </div>
-                            <div class="divider"></div>
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur
-                                adipisicing elit. Ex similique nihil laudantium,
-                                quod ea cupiditate
-                            </p>
-                            <div class="people-card-intro-input-con">
-                                <input class="moreBtn" id="more-btn1" type="button" value="More" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card people-card3">
-                        <img
-                            class="people-card-profile-photo"
-                            src="{{url_for('static', filename='src/profile3.png') }}"
-                            alt=""
-                        />
-                        <div class="people-card-intro-con">
-                            <div>
-                                <h2>Name</h2>
-                                <img src="" alt="" />
-                                <img src="" alt="" />
-                            </div>
-                            <div class="divider"></div>
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur
-                                adipisicing elit. Ex similique nihil laudantium,
-                                quod ea cupiditate
-                            </p>
-                            <div class="people-card-intro-input-con">
-                                <input class="moreBtn" id="more-btn2" type="button" value="More" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card people-card4">
-                        <img
-                            class="people-card-profile-photo"
-                            src="{{url_for('static', filename='src/profile4.png') }}"
-                            alt=""
-                        />
-                        <div class="people-card-intro-con">
-                            <div>
-                                <h2>Name</h2>
-                                <img src="" alt="" />
-                                <img src="" alt="" />
-                            </div>
-                            <div class="divider"></div>
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur
-                                adipisicing elit. Ex similique nihil laudantium,
-                                quod ea cupiditate
-                            </p>
-                            <div class="people-card-intro-input-con">
-                                <input class="moreBtn" id="more-btn3" type="button" value="More" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="sect3">
-                <div id="message">
-                    <h1>Message</h1>
-                    <input id="write" type="button" value="작성하기" />
-                </div>
-                <div id="message-card-container">
-                    
-                </div>
-            </section>
-            <div id="toTopBtn-con">
-                <input id="toTopBtn" type="button" value="맨 위로 가기" onclick="scrollToSection('nav-con')">
+    <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>React 한번 해보조</title>
+    <!-- 폰트 링크 시작 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 폰트 링크 끝 -->
+</head>
+
+<body>
+    <div id="loading">
+        <div class="spinner"></div>
+    </div>
+    <header class="sticky">
+        <nav id="nav-con">            <!--네비바-->
+            <div class="logo header-logo">React 한번 해보조</div>
+            <div class="nav-link-container">
+                <ul>
+                    <li id="team"><a onclick="scrollToSection('team')">Team</a></li>
+                    <li id="people"><a onclick="scrollToSection('sect2')">People</a></li>
+                    <li id="team"><a onclick="scrollToSection('sect3')">Message</a></li>
+                </ul>
             </div>
-            <footer>
-                <div id="footer-div1">
-                    <h1 class="logo footer-logo">React 한번 해보조</h1>
-                    <p>Created by React 6기 5조</p>
+        </nav>
+    </header>
+    <main>
+        <section id="sect1">
+            <div class="main-front front1">      <!--  팀소개 -->
+                <div>
+                    <h1 class="main-front-h1-big">
+                        Let us introduce our team
+                    </h1>
                 </div>
                 <div>
-                    <div class="nav-link-container">
-                        <ul>
-                            <li id="team"><a href="">Team</a></li>
-                            <li id="people"><a href="">People</a></li>
-                            <li id="team"><a href="">Message</a></li>
-                        </ul>
+                    <p>
+                        Lorem losum dolor sit amet, consectetur adipiscina
+                        elita vulla molestie tacilisis eros in iaculis. Sed
+                        consequat frinailla tellus, non suscipit uma
+                        volutpat id, sed ac vehicula tortor eget moncus
+                        dunc. in vehiculd sollicituain ante, quis taucibus
+                        tortor accumsan eget
+                    </p>
+                </div>
+            </div>
+            <div class="main-front front2">           <!-- 팀소개 -->
+                <div>
+                    <h1 class="main-front-h1-big">Who We Are</h1>
+                </div>
+                <div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elita Nulla molestie facilisis eros in iaculis. Sed
+                        consequat frinalla tellus, non suscioit urna
+                        volutpat id, sed ac vehicula tortor eset rhoncus
+                        nunc. In vehicula sollicitudin ante, quis faucious
+                        tortor accumsan eget.
+                    </p>
+                </div>
+            </div>
+            <div class="main-front-left front3">      <!-- 우리 목표 소개-->
+                <div id="main-front-left-div1">
+                    <h2>Our Goal</h2>
+                    <h3>Our goal is to be front-end developers!</h3>
+                </div>
+                <div>
+                    <p id="main-front-left-p">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elita Nulla molestie facilisis eros in iaculis. Sed
+                        consequat frinalla tellus, non suscioit urna
+                        volutpat id, sed ac vehicula tortor eset rhoncus
+                        nunc. In vehicula sollicitudin ante, quis faucious
+                        tortor accumsan eget.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="sect2">
+            <div id="sect2-people-div1">
+                <h1>People</h1>
+            </div>
+            <div id="people-cards-container">
+                <div class="card people-card1">         <!--소개 카드 1-->
+                    <img class="people-card-profile-photo" src="{{url_for('static', filename='src/profile1.png') }}"
+                        alt="" />
+                    <div class="people-card-intro-con">
+                        <div>
+                            <h2>환훈님</h2>
+                            <img src="" alt="" />
+                            <img src="" alt="" />
+                        </div>
+                        <div class="divider"></div>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur
+                            adipisicing elit. Ex similique nihil laudantium,
+                            quod ea cupiditate
+                        </p>
+                        <div class="people-card-intro-input-con">
+                            <input class="moreBtn" id="more-btn0" type="button" value="More" />
+                        </div>
                     </div>
                 </div>
-                
-            </footer>
-        </main>
-        <modal1>
-            <div class="modal-container">
-                <div id="modal-div1">
-                    <img src="{{url_for('static', filename='src/profile4.png') }}" alt="">
-                    <div id="modal-div1-info-container">
-                        <h1>김환훈</h1>
-                        <div class="modal-info-input-container" id="modal-age">
-                            <label for="age">나이</label>
-                            <input type="text" name="age" id="" readonly>
+                <div class="card people-card2">         <!--소개 카드 2-->
+                    <img class="people-card-profile-photo" src="{{url_for('static', filename='src/profile2.png') }}"
+                        alt="" />
+                    <div class="people-card-intro-con">
+                        <div>
+                            <h2>진솔님</h2>
+                            <img src="" alt="" />
+                            <img src="" alt="" />
                         </div>
-                        <div class="modal-info-input-container" id="modal-address">
-                            <label for="address">사는곳</label>
-                            <input type="text" name="address" id="" readonly>
-                        </div>
-                        <div class="modal-info-input-container" id="modal-mbti">
-                            <label for="mbti">MBTI</label>
-                            <input type="text" name="mbti" id="" readonly>
-                        </div>
-                        <div class="modal-info-input-container" id="modal-hobby">
-                            <label for="hobby">취미</label>
-                            <input type="text" name="hobby" id="" readonly>
-                        </div>
-                        <div class="modal-info-input-container" id="modal-blog">
-                            <label for="blog">블로그</label>
-                            <input type="text" name="blog" id="" readonly>
+                        <div class="divider"></div>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur
+                            adipisicing elit. Ex similique nihil laudantium,
+                            quod ea cupiditate
+                        </p>
+                        <div class="people-card-intro-input-con">
+                            <input class="moreBtn" id="more-btn1" type="button" value="More" />
                         </div>
                     </div>
                 </div>
-                <div id="modal-div2">
-                    <div id="modal-div2-1">
-                        <h2>장점과 단점</h2>
-                        <textarea rows="5" cols="50" placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate" readonly ></textarea>
+                <div class="card people-card3">          <!--소개 카드 3-->
+                    <img class="people-card-profile-photo" src="{{url_for('static', filename='src/profile3.png') }}"
+                        alt="" />
+                    <div class="people-card-intro-con">
+                        <div>
+                            <h2>Name</h2>
+                            <img src="" alt="" />
+                            <img src="" alt="" />
+                        </div>
+                        <div class="divider"></div>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur
+                            adipisicing elit. Ex similique nihil laudantium,
+                            quod ea cupiditate
+                        </p>
+                        <div class="people-card-intro-input-con">
+                            <input class="moreBtn" id="more-btn2" type="button" value="More" />
+                        </div>
                     </div>
-                    <div id="modal-div2-2">
-                        <h2>앞으로의 각오</h2>
-                        <textarea rows="5" cols="50" placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate" readonly ></textarea>
-                    </div>
-                    <div id="modal-div2-3">
-                        <input id="people-modal-close" type="button" value="닫기">
+                </div>
+                <div class="card people-card4">           <!--소개 카드 4-->
+                    <img class="people-card-profile-photo" src="{{url_for('static', filename='src/profile4.png') }}"
+                        alt="" />
+                    <div class="people-card-intro-con">
+                        <div>
+                            <h2>Name</h2>
+                            <img src="" alt="" />
+                            <img src="" alt="" />
+                        </div>
+                        <div class="divider"></div>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur
+                            adipisicing elit. Ex similique nihil laudantium,
+                            quod ea cupiditate
+                        </p>
+                        <div class="people-card-intro-input-con">
+                            <input class="moreBtn" id="more-btn3" type="button" value="More" />
+                        </div>
                     </div>
                 </div>
             </div>
-        </modal1>
-        <modal2>
-            <div class="modal-container1">
-                <div id="modal2-div1">
-                    <div>
-                        <label for="dropdown2">누구에게 보낼까요?</label>
-                        <select id="dropdown1">
+        </section>
+        <section id="sect3">
+            <div id="message">       <!--메시지 작성-->
+                <h1>Message</h1>
+                <input id="write" type="button" value="작성하기" />
+            </div>
+            <div id="message-card-container">
+
+            </div>
+        </section>
+        <div id="toTopBtn-con">         <!--맨 위로 버튼-->
+            <input id="toTopBtn" type="button" value="맨 위로 가기" onclick="scrollToSection('nav-con')">
+        </div>
+        <footer class="under-nav">
+            <div id="footer-div1">     <!--로고-->
+                <h1 class="logo footer-logo">React 한번 해보조</h1>
+                <p>Created by React 6기 5조</p>
+            </div>
+            <div>
+                <div class="nav-link-container">
+                    <ul>
+                        <li id="team"><a href="">Team</a></li>
+                        <li id="people"><a href="">People</a></li>
+                        <li id="team"><a href="">Message</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </footer>
+    </main>
+    <modal1>
+        <div class="modal-container">            <!--소개 카드-->
+            <div id="modal-div1">
+                <img src="{{url_for('static', filename='src/profile4.png') }}" alt="">
+                <div id="modal-div1-info-container">
+                    <h1>김환훈</h1>
+                    <div class="modal-info-input-container" id="modal-age">
+                        <label for="age">나이</label>
+                        <input type="text" name="age" id="" readonly>
+                    </div>
+                    <div class="modal-info-input-container" id="modal-address">
+                        <label for="address">사는곳</label>
+                        <input type="text" name="address" id="" readonly>
+                    </div>
+                    <div class="modal-info-input-container" id="modal-mbti">
+                        <label for="mbti">MBTI</label>
+                        <input type="text" name="mbti" id="" readonly>
+                    </div>
+                    <div class="modal-info-input-container" id="modal-hobby">
+                        <label for="hobby">취미</label>
+                        <input type="text" name="hobby" id="" readonly>
+                    </div>
+                    <div class="modal-info-input-container" id="modal-blog">
+                        <label for="blog">블로그</label>
+                        <input type="text" name="blog" id="" readonly>
+                    </div>
+                </div>
+            </div>
+            <div id="modal-div2">       <!-- 소개 카드 -->
+                <div id="modal-div2-1">
+                    <h2>장점과 단점</h2>
+                    <textarea rows="5" cols="50"
+                        placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate"
+                        readonly></textarea>
+                </div>
+                <div id="modal-div2-2">
+                    <h2>앞으로의 각오</h2>
+                    <textarea rows="5" cols="50"
+                        placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate"
+                        readonly></textarea>
+                </div>
+                <div id="modal-div2-3">
+                    <input id="people-modal-close" type="button" value="닫기">
+                </div>
+            </div>
+        </div>
+    </modal1>
+    <modal2>
+        <div class="modal-container1">   <!-- 메시지 작성 카드 -->
+            <div id="modal2-div1">
+                <div>
+                    <label for="dropdown2">To.</label>
+                    <select id="dropdown1">
                         <option value="" disabled selected hidden>선택하세요</option>
                         <option value="김환훈">김환훈</option>
                         <option value="이진솔">이진솔</option>
                         <option value="원유길">원유길</option>
                         <option value="이수진">이수진</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="dropdown1">나는 누구?</label>
-                        <select id="dropdown2">
+                    </select>
+                </div>
+                <div>
+                    <label for="dropdown1">By.</label>
+                    <select id="dropdown2">
                         <option value="" disabled selected hidden>선택하세요</option>
                         <option value="김환훈">김환훈</option>
                         <option value="이진솔">이진솔</option>
                         <option value="원유길">원유길</option>
                         <option value="이수진">이수진</option>
-                        </select>
-                    </div>
-                </div>
-                <div id="modal2-div2">
-                    <h2>Content</h2>
-                    <textarea id="messageTextArea" rows="5" cols="50" placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate"></textarea>
-                </div>
-                <div id="modal2-div3">
-                    <input id="modal2Send" type="button" value="보내기">
-                    <input id="modal2Close" type="button" value="닫기">
+                    </select>
                 </div>
             </div>
+            <div id="modal2-div2">
+                <h2>Content</h2>
+                <textarea id="messageTextArea" rows="5" cols="50"
+                    placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate"></textarea>
+            </div>
+            <div id="modal2-div3">
+                <input id="modal2Send" type="button" value="보내기">
+                <input id="modal2Close" type="button" value="닫기">
+            </div>
+        </div>
         </modal1>
-        </modal2>
-        <div class="backdrop hide"></div>
-    </body>
+    </modal2>
+    <div class="backdrop hide"></div>
+</body>
+
 </html>
-git test leesoojin
