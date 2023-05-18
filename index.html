@@ -1,349 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="reset.css" />
-        <link rel="stylesheet" href="style.css" />
-        <script src="script.js" defer></script>
-        <title>React 한번 해보조</title>
-        <!-- 폰트 링크 시작 -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
-        <!-- 폰트 링크 끝 -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div id="loading">
-            <div class="spinner"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>React 한번 해보조</title>
+    <!-- 폰트 링크 시작 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 폰트 링크 끝 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="loading">
+      <div class="spinner"></div>
+    </div>
+    <header>
+      <nav id="nav-con">
+        <div class="logo header-logo">
+          <img src="src/logo4.png" height="50px" />
         </div>
-        <header>
-            <nav id="nav-con">
-                <div class="logo header-logo">React 한번 해보조</div>
-                <div class="nav-link-container">
-                    <ul>
-                        <li id="team"><a onclick="scrollToSection('team')">Team</a></li>
-                        <li id="people"><a onclick="scrollToSection('sect2')">People</a></li>
-                        <li id="team"><a onclick="scrollToSection('sect3')">Message</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <main>
-            <section id="sect1">
-                <div id="carouselExample" class="carousel slide">
-                    <div class="carousel-inner">
-                        <div class="main-front front1 carousel-item active">
-                            <div>
-                                <h1 class="main-front-h1-big">
-                                    Let us introduce our team
-                                </h1>
-                            </div>
-                            <div>
-                                <p>
+        <div class="nav-link-container">
+          <ul>
+            <li id="team" class="focus n-team">
+              <a onclick="scrollToSection('sect1')">Team</a>
+            </li>
+            <li id="people" class="n-people">
+              <a onclick="scrollToSection('sect2')">People</a>
+            </li>
+            <li id="team" class="n-message">
+              <a onclick="scrollToSection('space')">Message</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="sect1">
+        <div id="carouselExample" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="main-front front1 carousel-item active">
+              <div class="slide">
+                <h1 class="main-front-h1-big">
+                  안녕하세요,<br />
+                  매일매일 발전하는<br />
+                  React 한번 해보조입니다!
+                </h1>
+                <!-- <p>
                                     Lorem losum dolor sit amet, consectetur adipiscina
                                     elita vulla molestie tacilisis eros in iaculis. Sed
                                     consequat frinailla tellus, non suscipit uma
                                     volutpat id, sed ac vehicula tortor eget moncus
                                     dunc. in vehiculd sollicituain ante, quis taucibus
                                     tortor accumsan eget
-                                </p>
-                            </div>
-                        </div>
-                        <div class="main-front front2 carousel-item">
-                            <div>
-                                <h1 class="main-front-h1-big">Who We Are</h1>
-                            </div>
-                            <div>
-                                <p>
-                                  Lorem ipsum dolor sit amet, consectetur adipiscing
-                                  elita Nulla molestie facilisis eros in iaculis. Sed
-                                  consequat frinalla tellus, non suscioit urna
-                                  volutpat id, sed ac vehicula tortor eset rhoncus
-                                  nunc. In vehicula sollicitudin ante, quis faucious
-                                  tortor accumsan eget.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="main-front front3 carousel-item">
-                            <div>
-                                <h1 class="main-front-h1-big">Our Goal</h1>
-                            </div>
-                            <div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elita Nulla molestie facilisis eros in iaculis. Sed
-                                    consequat frinalla tellus, non suscioit urna
-                                    volutpat id, sed ac vehicula tortor eset rhoncus
-                                    nunc. In vehicula sollicitudin ante, quis faucious
-                                    tortor accumsan eget.
-                                  </p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-            </section>
-            
-            <section id="sect2">
-                <div id="sect2-people-div1"><h1>People</h1></div>
-                <div id="people-cards-container">
-                    <div class="card people-card1">
-                        <img
-                            class="people-card-profile-photo"
-                            src="src/profile1.png"
-                            alt=""
-                        />
-                        <div class="people-card-intro-con">
-                            <div>
-                                <h2>Name</h2>
-                                <img src="" alt="" />
-                                <img src="" alt="" />
-                            </div>
-                            <div class="divider"></div>
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur
-                                adipisicing elit. Ex similique nihil laudantium,
-                                quod ea cupiditate
-                            </p>
-                            <div class="people-card-intro-input-con">
-                                <input class="moreBtn" id="more-btn0" type="button" value="More" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card people-card2">
-                        <img
-                            class="people-card-profile-photo"
-                            src="src/profile2.png"
-                            alt=""
-                        />
-                        <div class="people-card-intro-con">
-                            <div>
-                                <h2>Name</h2>
-                                <img src="" alt="" />
-                                <img src="" alt="" />
-                            </div>
-                            <div class="divider"></div>
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur
-                                adipisicing elit. Ex similique nihil laudantium,
-                                quod ea cupiditate
-                            </p>
-                            <div class="people-card-intro-input-con">
-                                <input class="moreBtn" id="more-btn1" type="button" value="More" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card people-card3">
-                        <img
-                            class="people-card-profile-photo"
-                            src="src/profile3.png"
-                            alt=""
-                        />
-                        <div class="people-card-intro-con">
-                            <div>
-                                <h2>Name</h2>
-                                <img src="" alt="" />
-                                <img src="" alt="" />
-                            </div>
-                            <div class="divider"></div>
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur
-                                adipisicing elit. Ex similique nihil laudantium,
-                                quod ea cupiditate
-                            </p>
-                            <div class="people-card-intro-input-con">
-                                <input class="moreBtn" id="more-btn2" type="button" value="More" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card people-card4">
-                        <img
-                            class="people-card-profile-photo"
-                            src="src/profile4.png"
-                            alt=""
-                        />
-                        <div class="people-card-intro-con">
-                            <div>
-                                <h2>Name</h2>
-                                <img src="" alt="" />
-                                <img src="" alt="" />
-                            </div>
-                            <div class="divider"></div>
-                            <p>
-                                Lorem, ipsum dolor sit amet consectetur
-                                adipisicing elit. Ex similique nihil laudantium,
-                                quod ea cupiditate
-                            </p>
-                            <div class="people-card-intro-input-con">
-                                <input class="moreBtn" id="more-btn3" type="button" value="More" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="sect3">
-                <div id="message">
-                    <h1>Message</h1>
-                    <input id="write" type="button" value="작성하기" />
-                </div>
-                <div id="message-card-container">
-                    <div class="card message-card">
-                        <div class="message-card-first-div">
-                            <p class="message-card-p1">To.</p>
-                            <p class="message-card-p1">username</p>
-                        </div>
-                        <textarea rows="5" cols="50" placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate" readonly ></textarea>
-                        <div class="message-card-second-div">
-                            <p class="message-card-p1">From.</p>
-                            <p class="message-card-p1">username</p>
-                        </div>
-                    </div>
-                    <div class="card message-card">
-                        <div class="message-card-first-div">
-                            <p class="message-card-p1">To.</p>
-                            <p class="message-card-p1">username</p>
-                        </div>
-                        <textarea rows="5" cols="50" placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate" readonly ></textarea>
-                        <div class="message-card-second-div">
-                            <p class="message-card-p1">From.</p>
-                            <p class="message-card-p1">username</p>
-                        </div>
-                    </div>
-                    <div class="card message-card">
-                        <div class="message-card-first-div">
-                            <p class="message-card-p1">To.</p>
-                            <p class="message-card-p1">username</p>
-                        </div>
-                        <textarea rows="5" cols="50" placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate" readonly ></textarea>
-                        <div class="message-card-second-div">
-                            <p class="message-card-p1">From.</p>
-                            <p class="message-card-p1">username</p>
-                        </div>
-                    </div>
-                    <div class="card message-card">
-                        <div class="message-card-first-div">
-                            <p class="message-card-p1">To.</p>
-                            <p class="message-card-p1">username</p>
-                        </div>
-                        <textarea rows="5" cols="50" placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate" readonly ></textarea>
-                        <div class="message-card-second-div">
-                            <p class="message-card-p1">From.</p>
-                            <p class="message-card-p1">username</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div id="toTopBtn-con">
-                <input id="toTopBtn" type="button" value="맨 위로 가기" onclick="scrollToSection('nav-con')">
+                                </p> -->
+              </div>
             </div>
-            <footer>
-                <div id="footer-div1">
-                    <h1 class="logo footer-logo">React 한번 해보조</h1>
-                    <p>Created by React 6기 5조</p>
-                </div>
-                <div>
-                    <div class="nav-link-container">
-                        <ul>
-                            <li id="team"><a href="">Team</a></li>
-                            <li id="people"><a href="">People</a></li>
-                            <li id="team"><a href="">Message</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-            </footer>
-        </main>
-        <modal1>
-            <div class="modal-container">
-                <div id="modal-div1">
-                    <img src="src/profile1.png" alt="">
-                    <div id="modal-div1-info-container">
-                        <h1>김환훈</h1>
-                        <div class="modal-info-input-container" id="modal-age">
-                            <label for="age">나이</label>
-                            <input type="text" name="age" id="" readonly>
-                        </div>
-                        <div class="modal-info-input-container" id="modal-address">
-                            <label for="address">사는곳</label>
-                            <input type="text" name="address" id="" readonly>
-                        </div>
-                        <div class="modal-info-input-container" id="modal-mbti">
-                            <label for="mbti">MBTI</label>
-                            <input type="text" name="mbti" id="" readonly>
-                        </div>
-                        <div class="modal-info-input-container" id="modal-hobby">
-                            <label for="hobby">취미</label>
-                            <input type="text" name="hobby" id="" readonly>
-                        </div>
-                        <div class="modal-info-input-container" id="modal-blog">
-                            <label for="blog">블로그</label>
-                            <input type="text" name="blog" id="" readonly>
-                        </div>
-                    </div>
-                </div>
-                <div id="modal-div2">
-                    <div id="modal-div2-1">
-                        <h2>장점과 단점</h2>
-                        <textarea rows="5" cols="50" placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate" readonly ></textarea>
-                    </div>
-                    <div id="modal-div2-2">
-                        <h2>앞으로의 각오</h2>
-                        <textarea rows="5" cols="50" placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate" readonly ></textarea>
-                    </div>
-                    <div id="modal-div2-3">
-                        <input id="people-modal-close" type="button" value="닫기">
-                    </div>
-                </div>
+            <div class="main-front front2 carousel-item">
+              <div class="slide">
+                <h1 class="main-front-h1-big">Who We Are</h1>
+                <p>
+                  잘하는 걸로도 모자라 아낌없이 지식을 공유해준 천재만재 김환훈,
+                  항상 늦은 시간까지 남아 완벽한 코드를 만든 열정천재 원유길,
+                  깔끔하게 정리한 파일로 문제를 해결해준 정리천재 이수진, 분위기
+                  메이커 이진솔로 이루어진 우리조는 완벽한 육각형 팀입니다. 서로
+                  어려운 부분이 있으면 함께 해결하고 좋은 정보나 지식은 공유하며
+                  일주일간 완벽하게 합을 맞췄습니다. 다음에도 같이 팀하고싶다는
+                  말이 나왔을정도면 더 이상의 설명은 필요없겠죠?
+                </p>
+              </div>
             </div>
-        </modal1>
-        <modal2>
-            <div class="modal-container1">
-                <div id="modal2-div1">
-                    <div>
-                        <label for="dropdown2">선택하세요:</label>
-                        <select id="dropdown1">
-                        <option value="" disabled selected hidden>선택하세요</option>
-                        <option value="option1">옵션 1</option>
-                        <option value="option2">옵션 2</option>
-                        <option value="option3">옵션 3</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="dropdown1">선택하세요:</label>
-                        <select id="dropdown2">
-                        <option value="" disabled selected hidden>선택하세요</option>
-                        <option value="option1">옵션 1</option>
-                        <option value="option2">옵션 2</option>
-                        <option value="option3">옵션 3</option>
-                        </select>
-                    </div>
-                </div>
-                <div id="modal2-div2">
-                    <h2>Content</h2>
-                    <textarea rows="5" cols="50" placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate" readonly ></textarea>
-                </div>
-                <div id="modal2-div3">
-                    <input id="modal2Send" type="button" value="보내기">
-                    <input id="modal2Close" type="button" value="닫기">
-                </div>
+            <div class="main-front front3 carousel-item">
+              <div class="slide">
+                <h1 class="main-front-h1-big">Our Goal</h1>
+                <p>
+                  팀소개 페이지 프로젝트 목표로는 좋은 분위기와 만족스러운
+                  결과물입니다. 둘 중에 하나라도 없으면 아쉬움이 남을수밖에
+                  없으니까요. 돌아보니 두마리의 토끼를 잡는데 성공한 것
+                  같습니다. 남은 기간동안 포기하지 않고 열심히 배워서 좋은 회사,
+                  좋은 연봉으로 취업한 뒤 다함께 모여 밥 한끼하면서 지금을
+                  돌아보고 싶습니다. React 한번해보조 화이팅!
+                </p>
+              </div>
             </div>
-        </modal1>
-        </modal2>
-        <div class="backdrop hide"></div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-    </body>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+      <section id="sect2">
+        <div id="sect2-people-div1"><h1>People</h1></div>
+        <div id="people-cards-container">
+          <div class="card people-card1">
+            <img
+              class="people-card-profile-photo"
+              src="src/profile1.png"
+              alt=""
+            />
+            <div class="people-card-intro-con">
+              <div>
+                <h2>Name</h2>
+                <img src="" alt="" />
+                <img src="" alt="" />
+              </div>
+              <div class="divider"></div>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex
+                similique nihil laudantium, quod ea cupiditate
+              </p>
+              <div class="people-card-intro-input-con">
+                <input
+                  class="moreBtn"
+                  id="more-btn0"
+                  type="button"
+                  value="More"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="card people-card2">
+            <img
+              class="people-card-profile-photo"
+              src="src/profile2.png"
+              alt=""
+            />
+            <div class="people-card-intro-con">
+              <div>
+                <h2>Name</h2>
+                <img src="" alt="" />
+                <img src="" alt="" />
+              </div>
+              <div class="divider"></div>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex
+                similique nihil laudantium, quod ea cupiditate
+              </p>
+              <div class="people-card-intro-input-con">
+                <input
+                  class="moreBtn"
+                  id="more-btn1"
+                  type="button"
+                  value="More"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="card people-card3">
+            <img
+              class="people-card-profile-photo"
+              src="src/profile3.png"
+              alt=""
+            />
+            <div class="people-card-intro-con">
+              <div>
+                <h2>Name</h2>
+                <img src="" alt="" />
+                <img src="" alt="" />
+              </div>
+              <div class="divider"></div>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex
+                similique nihil laudantium, quod ea cupiditate
+              </p>
+              <div class="people-card-intro-input-con">
+                <input
+                  class="moreBtn"
+                  id="more-btn2"
+                  type="button"
+                  value="More"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="card people-card4">
+            <img
+              class="people-card-profile-photo"
+              src="src/profile4.png"
+              alt=""
+            />
+            <div class="people-card-intro-con">
+              <div>
+                <h2>Name</h2>
+                <img src="" alt="" />
+                <img src="" alt="" />
+              </div>
+              <div class="divider"></div>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex
+                similique nihil laudantium, quod ea cupiditate
+              </p>
+              <div class="people-card-intro-input-con">
+                <input
+                  class="moreBtn"
+                  id="more-btn3"
+                  type="button"
+                  value="More"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="sect3">
+        <div id="message">
+          <p id="space">ㅤ</p>
+          <h1>Message</h1>
+          <input id="write" type="button" value="작성하기" />
+        </div>
+        <div id="message-card-container">
+          <div class="card message-card">
+            <div class="message-card-first-div">
+              <p class="message-card-p1">To.</p>
+              <p class="message-card-p1">username</p>
+            </div>
+            <textarea
+              rows="5"
+              cols="50"
+              placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate"
+              readonly
+            ></textarea>
+            <div class="message-card-second-div">
+              <p class="message-card-p1">From.</p>
+              <p class="message-card-p1">username</p>
+            </div>
+          </div>
+          <div class="card message-card">
+            <div class="message-card-first-div">
+              <p class="message-card-p1">To.</p>
+              <p class="message-card-p1">username</p>
+            </div>
+            <textarea
+              rows="5"
+              cols="50"
+              placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate"
+              readonly
+            ></textarea>
+            <div class="message-card-second-div">
+              <p class="message-card-p1">From.</p>
+              <p class="message-card-p1">username</p>
+            </div>
+          </div>
+          <div class="card message-card">
+            <div class="message-card-first-div">
+              <p class="message-card-p1">To.</p>
+              <p class="message-card-p1">username</p>
+            </div>
+            <textarea
+              rows="5"
+              cols="50"
+              placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate"
+              readonly
+            ></textarea>
+            <div class="message-card-second-div">
+              <p class="message-card-p1">From.</p>
+              <p class="message-card-p1">username</p>
+            </div>
+          </div>
+          <div class="card message-card">
+            <div class="message-card-first-div">
+              <p class="message-card-p1">To.</p>
+              <p class="message-card-p1">username</p>
+            </div>
+            <textarea
+              rows="5"
+              cols="50"
+              placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate"
+              readonly
+            ></textarea>
+            <div class="message-card-second-div">
+              <p class="message-card-p1">From.</p>
+              <p class="message-card-p1">username</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div id="footer-div1">
+          <h1 class="logo footer-logo">React 한번 해보조</h1>
+        </div>
+        <div id="toTopBtn-con">
+          <input
+            id="toTopBtn"
+            type="button"
+            value="맨 위로 가기"
+            onclick="scrollToSection('nav-con')"
+          />
+        </div>
+        <div>
+          <p>Created by React 6기 5조</p>
+          <!-- <div class="nav-link-container">
+            <ul>
+              <li id="team"><a href="">Team</a></li>
+              <li id="people"><a href="">People</a></li>
+              <li id="team"><a href="">Message</a></li>
+            </ul>
+          </div> -->
+        </div>
+      </footer>
+    </main>
+    <modal1>
+      <div class="modal-container">
+        <div id="modal-div1">
+          <img src="src/profile1.png" alt="" />
+          <div id="modal-div1-info-container">
+            <h1>김환훈</h1>
+            <div class="modal-info-input-container" id="modal-age">
+              <label for="age">나이</label>
+              <input type="text" name="age" id="" readonly />
+            </div>
+            <div class="modal-info-input-container" id="modal-address">
+              <label for="address">사는곳</label>
+              <input type="text" name="address" id="" readonly />
+            </div>
+            <div class="modal-info-input-container" id="modal-mbti">
+              <label for="mbti">MBTI</label>
+              <input type="text" name="mbti" id="" readonly />
+            </div>
+            <div class="modal-info-input-container" id="modal-hobby">
+              <label for="hobby">취미</label>
+              <input type="text" name="hobby" id="" readonly />
+            </div>
+            <div class="modal-info-input-container" id="modal-blog">
+              <label for="blog">블로그</label>
+              <input type="text" name="blog" id="" readonly />
+            </div>
+          </div>
+        </div>
+        <div id="modal-div2">
+          <div id="modal-div2-1">
+            <h2>장점과 단점</h2>
+            <textarea
+              rows="5"
+              cols="50"
+              placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate"
+              readonly
+            ></textarea>
+          </div>
+          <div id="modal-div2-2">
+            <h2>앞으로의 각오</h2>
+            <textarea
+              rows="5"
+              cols="50"
+              placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate"
+              readonly
+            ></textarea>
+          </div>
+          <div id="modal-div2-3">
+            <input id="people-modal-close" type="button" value="닫기" />
+          </div>
+        </div>
+      </div>
+    </modal1>
+    <modal2>
+      <div class="modal-container1">
+        <div id="modal2-div1">
+          <div>
+            <label for="dropdown2">선택하세요:</label>
+            <select id="dropdown1">
+              <option value="" disabled selected hidden>선택하세요</option>
+              <option value="option1">옵션 1</option>
+              <option value="option2">옵션 2</option>
+              <option value="option3">옵션 3</option>
+            </select>
+          </div>
+          <div>
+            <label for="dropdown1">선택하세요:</label>
+            <select id="dropdown2">
+              <option value="" disabled selected hidden>선택하세요</option>
+              <option value="option1">옵션 1</option>
+              <option value="option2">옵션 2</option>
+              <option value="option3">옵션 3</option>
+            </select>
+          </div>
+        </div>
+        <div id="modal2-div2">
+          <h2>Content</h2>
+          <textarea
+            rows="5"
+            cols="50"
+            placeholder="example sentences, Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex similique nihil laudantium, quod ea cupiditate"
+            readonly
+          ></textarea>
+        </div>
+        <div id="modal2-div3">
+          <input id="modal2Send" type="button" value="보내기" />
+          <input id="modal2Close" type="button" value="닫기" />
+        </div>
+      </div>
+    </modal2>
+    <div class="backdrop hide"></div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
